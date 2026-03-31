@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --page-gradient-start: #061220;
+  --page-gradient-mid: #0a1c2b;
+  --page-gradient-end: #0d2734;
+  /* Acentos cyan más contenidos (premium, no neón) */
+  --glow-cyan: rgba(32, 118, 132, 0.06);
+}
+
+@theme inline {
+  --color-obsidian: #061220;
+  --color-midnight: #0d2734;
+  --color-midnight-deep: #0a1c2b;
+  --color-cyan-brand: #248b9e;
+  --color-cyan-bright: #4a9faf;
+  --color-cyan-muted: #6a8f9a;
+  --color-ice: #eaf4f7;
+  --color-slate-mist: #aab9c2;
+  --color-border-subtle: rgba(234, 244, 247, 0.07);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 16px;
+  --radius-button: 16px;
+
+  --shadow-glow-sm: 0 0 48px rgba(28, 96, 110, 0.06);
+  --shadow-glow-md: 0 0 72px rgba(28, 96, 110, 0.09);
+  --shadow-card: 0 24px 48px rgba(0, 0, 0, 0.4);
+
+  --animate-duration-fast: 200ms;
+  --animate-duration-base: 320ms;
+  --animate-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: linear-gradient(
+    165deg,
+    var(--page-gradient-start) 0%,
+    var(--page-gradient-mid) 48%,
+    var(--page-gradient-end) 100%
+  );
+  background-color: var(--page-gradient-start);
+  color: var(--color-ice);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(36, 139, 158, 0.28);
+  color: var(--color-ice);
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #3a8f9f 0%, #5aa5b2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, #2d7f8f 0%, #3d96a5 55%, #4a9faf 100%);
+  }
+
+  .bg-gradient-page {
+    background: linear-gradient(180deg, #061220 0%, #0a1c2b 100%);
+  }
+
+  .border-subtle {
+    border: 1px solid rgba(234, 244, 247, 0.07);
+  }
+
+  .focus-ring {
+    @apply outline-none ring-2 ring-cyan-brand/35 ring-offset-2 ring-offset-obsidian;
+  }
+}
