@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="NEWTON">
+  <defs>
+    <linearGradient id="newton-apple" x1="4" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1d7a8c" />
+      <stop offset="0.5" stop-color="#248b9e" />
+      <stop offset="1" stop-color="#4a9faf" />
+    </linearGradient>
+  </defs>
+  <path
+    fill="none"
+    stroke="#155e6b"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M12 6.528V3a1 1 0 0 1 1-1h0"
+  />
+  <path
+    fill="url(#newton-apple)"
+    d="M18.237 21A15 15 0 0 0 22 11a6 6 0 0 0-10-4.472A6 6 0 0 0 2 11a15.1 15.1 0 0 0 3.763 10 3 3 0 0 0 3.648.648 5.5 5.5 0 0 1 5.178 0A3 3 0 0 0 18.237 21"
+  />
+</svg>

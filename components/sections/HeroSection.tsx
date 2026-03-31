@@ -2,9 +2,20 @@ import { siteContent } from "@/content/siteContent";
 import { Container } from "@/components/ui/Container";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { LogoMark } from "@/components/ui/LogoMark";
+
+/** Parte el titular en líneas (frases separadas por ". ") */
+function headlineLines(text: string): string[] {
+  return text
+    .split(". ")
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((s) => (s.endsWith(".") ? s : `${s}.`));
+}
 
 export function HeroSection() {
   const { hero } = siteContent;
+  const titleLines = headlineLines(hero.headline);
   return (
     <section
       className="relative overflow-hidden pt-10 pb-28 sm:pt-14 sm:pb-36 lg:pt-16 lg:pb-44"
@@ -25,7 +36,29 @@ export function HeroSection() {
                 id="hero-heading"
                 className="text-center font-heading text-[clamp(2.15rem,6vw,4rem)] font-medium leading-[1.05] tracking-tight text-ice lg:text-left"
               >
-                {hero.headline}
+                <span className="flex flex-col items-center gap-8 sm:gap-9 lg:flex-row lg:items-center lg:justify-start lg:gap-12 xl:gap-14">
+                  <LogoMark
+                    href="/"
+                    size="xl"
+                    priority
+                    decorative
+                    className="shrink-0 drop-shadow-[0_0_40px_rgba(36,139,158,0.32)]"
+                  />
+                  <span className="min-w-0 flex-1 lg:pt-0">
+                    {titleLines.map((line, i) => (
+                      <span
+                        key={i}
+                        className={
+                          i === 0
+                            ? "block sm:whitespace-nowrap"
+                            : "block text-pretty"
+                        }
+                      >
+                        {line}
+                      </span>
+                    ))}
+                  </span>
+                </span>
               </h1>
             </FadeIn>
             <FadeIn delay={0.12}>

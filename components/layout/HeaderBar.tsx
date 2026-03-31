@@ -11,7 +11,7 @@ export function HeaderBar() {
       className="mx-auto flex w-full max-w-[1280px] shrink-0 items-center justify-between px-6 sm:px-8 lg:px-10"
       style={{ height: HEADER_INNER_HEIGHT_PX }}
     >
-      <LogoMark href="/" size="sm" priority />
+      <LogoMark href="/" size="lg" />
       <nav className="hidden items-center gap-7 xl:gap-9 lg:flex" aria-label="Principal">
         {siteContent.nav.map((item) => (
           <Link
